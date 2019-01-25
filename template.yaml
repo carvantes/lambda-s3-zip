@@ -24,6 +24,8 @@ Resources:
             Runtime: nodejs8.10
             Timeout: 300
             MemorySize: 1024
+            Policies:
+              - AWSLambdaExecute
 
 Outputs:
 
