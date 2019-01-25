@@ -4,41 +4,25 @@ Description: >
     lambda-s3-zip
 
     Sample SAM Template for lambda-s3-zip
-    
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
-Globals:
-    Function:
-        Timeout: 3
-
 
 Resources:
 
-    HelloWorldFunction:
-        Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    lambdaS3Zip:
+        Type: AWS::Serverless::Function
         Properties:
             CodeUri: src/
             Handler: app.lambdaHandler
             Runtime: nodejs8.10
-            Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
-                Variables:
-                    PARAM1: VALUE
-            Events:
-                HelloWorld:
-                    Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-                    Properties:
-                        Path: /hello
-                        Method: get
+            Timeout: 300
+            MemorySize: 1024
 
 Outputs:
 
-    HelloWorldApi:
-      Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    lambdaS3Zip:
+      Description: "Lambda Function Name"
+      Value: !Ref lambdaS3Zip
 
-    HelloWorldFunction:
-      Description: "Hello World Lambda Function ARN"
-      Value: !GetAtt HelloWorldFunction.Arn
+    lambdaS3ZipArn:
+      Description: "Lambda Function ARN"
+      Value: !GetAtt lambdaS3Zip.Arn
 
-    HelloWorldFunctionIamRole:
-      Description: "Implicit IAM Role created for Hello World function"
-      Value: !GetAtt HelloWorldFunctionRole.Arn
