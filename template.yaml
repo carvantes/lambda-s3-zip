@@ -1,9 +1,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
-    lambda-s3-zip
 
-    Sample SAM Template for lambda-s3-zip
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: lambda-s3-zip
+    Description: Lambda function that compressess a given S3 file and saves the output back to S3
+    Author: Nestor Carvantes
+    SpdxLicenseId: MIT
+    LicenseUrl: LICENSE
+    ReadmeUrl: README.md
+    Labels: ['lambda', 's3', 'zip', 'compress']
+    HomePageUrl: https://github.com/carvantes/lambda-s3-zip
+    SemanticVersion: 0.1.0
+    SourceCodeUrl: https://github.com/carvantes/lambda-s3-zip
 
 Resources:
 
