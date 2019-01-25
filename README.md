@@ -17,7 +17,7 @@ It uses streams to download, compress and upload files, allowing it to process f
 ## Usage
 
 Input event:
-```json
+```js
 {
     "Bucket":STRING_VALUE, /* required */
     "Key":STRING_VALUE,    /* required */
